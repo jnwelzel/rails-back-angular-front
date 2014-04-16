@@ -1,0 +1,13 @@
+<a href="#posts">All posts</a>
+<h1>New Post</h1>
+<hr>
+
+<form>
+  <label for="title">Title</label>
+  <input id="title" placeholder="Ode to Joy" required ng-model="post.title" autofocus>
+
+  <label for="content">Content</label>
+  <textarea rows="3" id="content" placeholder="Lorem ipsum..." required ng-model="post.content"></textarea>
+
+  <button ng-click="create(post)">Save</button>
+</form>
