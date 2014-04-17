@@ -1,12 +1,17 @@
 @app.factory 'Post', ['$resource', ($resource) ->
-  res = $resource('/api/posts/:id', {id: '@id'})
+  PostResource = $resource('/api/posts/:id', {id: '@id'})
+
+  save: (post) ->
+    response = new PostResource(post).$save()
+    response.then (result) ->
+      result
 ]
 
-@app.factory 'httpInterceptor', ['$q', ($q) ->
+@app.factory 'httpInterceptor', ['$q', 'flash', ($q, flash) ->
   {
     'responseError': (rejection) ->
-      console.log 'Error response intercepted!'
       # handle error
+      showMessage('Something went wrong...', 'error')
       $q.reject rejection
   }
 ]

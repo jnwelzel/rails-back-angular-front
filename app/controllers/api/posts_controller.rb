@@ -1,16 +1,16 @@
 class Api::PostsController < ApplicationController
   def index
-    logger.info "Requesting all posts"
-    render json: Post.all, status: 200
+    render json: Post.all.order("id desc"), status: 200
   end
 
   def create
-    post = Post.new safe_params
-    if post.save
-      render json: post, status: 200
-    else
-      render nothing: true, status: 500
-    end
+    # post = Post.new safe_params
+    # if post.save
+    #   render json: post, status: 200
+    # else
+    #   render nothing: true, status: 500
+    # end
+    render nothing: true, status: 500
   end
 
   def update

@@ -10,8 +10,11 @@
   $scope.post = {}
 
   $scope.create = (post) ->
-    new Post(angular.copy(post)).$save()
-    $location.path '/posts'
+    # new Post(angular.copy(post)).$save()
+    res = Post.save(angular.copy(post))
+    res.then (result) ->
+      $location.path '/posts' if res?
+
     return
   return
 ]
