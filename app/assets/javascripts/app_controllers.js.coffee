@@ -8,20 +8,10 @@
 
 @app.controller 'NewPostCtrl', ['$scope', '$location', 'Post', ($scope, $location, Post) ->
   $scope.post = {}
-  @error = []
-  @success = []
 
-  $scope.create = (post) =>
-    new Post(angular.copy(post)).$save({}, success_callback(@success), error_callback(@error))
-    return
-  return
-
-  success_callback: (success) ->
-    console.log "save post SUCCESS: #{@success}"
+  $scope.create = (post) ->
+    new Post(angular.copy(post)).$save()
     $location.path '/posts'
     return
-
-  error_callback: (error) ->
-    console.log "save post ERROR: #{@error}"
-    return
+  return
 ]
