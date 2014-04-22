@@ -4,13 +4,12 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    # post = Post.new safe_params
-    # if post.save
-    #   render json: post, status: 200
-    # else
-    #   render nothing: true, status: 500
-    # end
-    render nothing: true, status: 500
+    post = Post.new safe_params
+    if post.save
+      render json: post, status: 200
+    else
+      render nothing: true, status: 500
+    end
   end
 
   def update

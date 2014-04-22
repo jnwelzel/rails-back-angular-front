@@ -10,22 +10,19 @@ $errorBgColor: #F2DEDE;
 $errorColor: #B94A48;
 $errorBorderColor: #EED3D7;
 
-.notification
-{
+.notification {
 	background-color: $notificationBgColor;
 	color: $notificationColor;
 	border-bottom: 1px solid $notificationBorderColor;
 }
 
-.notification.warning
-{
+.notification.warning {
 	background-color: $warningBgColor;
 	color: $warningColor;
 	border-bottom: 1px solid $warningBorderColor;
 }
 
-.notification.error
-{
+.notification.error {
 	background-color: $errorBgColor;
 	color: $errorColor;
 	border-bottom: 1px solid $errorBorderColor;

@@ -5,13 +5,17 @@
     response = new PostResource(post).$save()
     response.then (result) ->
       result
+
+  all: ->
+    PostResource.query()
 ]
 
-@app.factory 'httpInterceptor', ['$q', 'flash', ($q, flash) ->
+@app.factory 'httpInterceptor', ['$q', ($q) ->
   {
     'responseError': (rejection) ->
       # handle error
-      showMessage('Something went wrong...', 'error')
+      msg = '(' + rejection.status + ' ' + rejection.statusText + ')'
+      angular.element(showMessage('Something went wrong ' + msg, 'error'))
       $q.reject rejection
   }
 ]
