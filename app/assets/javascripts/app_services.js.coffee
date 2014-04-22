@@ -8,6 +8,19 @@
 
   all: ->
     PostResource.query()
+
+  find: (id) ->
+    PostResource.get({id: id})
+]
+
+@app.factory 'Comment', ['$resource', ($resource) ->
+  CommentResource = $resource('/api/posts/:postId/comments/:commentId', {postId: @post_id, commentId: @id})
+
+  all: (postId) ->
+    CommentResource.get({postId: postId})
+
+  create: (comment) ->
+    response = new CommentResource(comment).$save()
 ]
 
 @app.factory 'httpInterceptor', ['$q', ($q) ->

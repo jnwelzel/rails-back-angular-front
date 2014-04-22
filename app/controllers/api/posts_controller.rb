@@ -17,6 +17,21 @@ class Api::PostsController < ApplicationController
     render nothing: true, status: 204
   end
 
+  def show
+    post = Post.find(params[:id])
+    if post.nil?
+      render nothing: true, status: 404
+    else
+      render json: post, status: 200
+    end
+  end
+
   def destroy
   end
+
+private
+  def safe_params
+    params.require(:post).permit(:title, :content)
+  end
+
 end

@@ -1,0 +1,17 @@
+<form>
+  <div class="large-3 small-12 columns">
+    <label for="name">Name</label>
+    <input type="text" id="name" ng-model="comment.name">
+  </div>
+  <div class="large-3 small-12 columns">
+    <label for="email">Email</label>
+    <input type="email" id="email" ng-model="comment.name" required>
+  </div>
+  <div class="large-4 small-12 columns">
+    <label for="comment">Comment</label>
+    <textarea id="comment" rows="3" ng-model="comment.content"></textarea>
+  </div>
+  <div class="large-2 small-12 columns">
+    <button class="small button" ng-click="createComment(comment)">Save</button>
+  </div>
+</form>

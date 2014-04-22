@@ -1,0 +1,10 @@
+<h1>Post</h1>
+<a href="#">Home</a> | <a href="#posts">Posts</a>
+<hr>
+<h4>{{post.title}}</h4>
+<span class="radius secondary label">{{post.created_at}}</span>
+<p>{{post.content}}</p>
+<hr>
+<h5>Comments</h5>
+<ng-include src="'partials/posts/_comment_form.html'"></ng-include>
+<ng-include src="'partials/posts/_comments.html'"></ng-include>

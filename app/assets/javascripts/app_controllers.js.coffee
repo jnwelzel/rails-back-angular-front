@@ -16,3 +16,13 @@
     return
   return
 ]
+
+@app.controller 'ShowPostCtrl', ['$scope', 'Post', '$routeParams', 'Comment', ($scope, Post, $routeParams, Comment) ->
+  $scope.post = Post.find($routeParams['id'])
+  $scope.comment = {}
+  $scope.comments = Comment.all($routeParams['id'])
+  $scope.createComment = (comment) ->
+    comment.post_id = $routeParams['id']
+    Comment.create(comment)
+  return
+]

@@ -4,6 +4,7 @@
   $routeProvider
     .when '/posts', {templateUrl: 'partials/posts/index.html', controller: 'AllPostsCtrl'}
     .when '/new_post', {templateUrl: 'partials/posts/new.html', controller: 'NewPostCtrl'}
+    .when '/posts/:id', {templateUrl: 'partials/posts/show.html', controller: 'ShowPostCtrl'}
     .otherwise {templateUrl: 'home.html', controller: 'HomeCtrl'}
 ]
 
